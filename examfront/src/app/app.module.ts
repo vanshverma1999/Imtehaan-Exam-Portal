@@ -13,6 +13,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { HomeComponent } from './pages/home/home.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import {HttpClientModule} from '@angular/common/http';
     NavbarComponent,
     FooterComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +35,8 @@ import {HttpClientModule} from '@angular/common/http';
     MatFormFieldModule,
     FormsModule,
     HttpClientModule,
+    MatSnackBarModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
