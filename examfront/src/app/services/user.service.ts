@@ -14,5 +14,6 @@ export class UserService {
   {
     return this.http.post(`${baseUrl}/user/`,user);
   }
+  
 
 }
