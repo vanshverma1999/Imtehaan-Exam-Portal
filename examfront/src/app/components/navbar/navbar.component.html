@@ -8,6 +8,7 @@
     <span class="example-spacer"></span>
 
     <a
+    *ngIf="!isLoggedIn"
     [routerLink]="'/login'"
     mat-icon-button class="example-icon favorite-icon mr40" aria-label="Example icon-button with heart icon">
       <mat-icon>login</mat-icon>
@@ -15,9 +16,22 @@
     </a>
 
     <a
+    *ngIf="!isLoggedIn"
     [routerLink]="'/signup'"
     mat-icon-button class="example-icon mr40 ml20" aria-label="Example icon-button with share icon">
       <mat-icon>how_to_reg</mat-icon>
       Sign Up
+    </a>
+    <a
+    *ngIf="isLoggedIn && user"
+    mat-icon-button class="example-icon mr80 ml20" aria-label="Example icon-button with share icon">
+      {{ user.username }}
+  </a>
+    <a
+    (click)="logout()"
+    *ngIf="isLoggedIn"
+    mat-icon-button class="example-icon mr40 ml20" aria-label="Example icon-button with share icon">
+      <mat-icon>logout</mat-icon>
+      Logout
     </a>
   </mat-toolbar>
