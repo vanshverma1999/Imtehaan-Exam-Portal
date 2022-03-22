@@ -9,6 +9,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  
+  
+
 
   constructor(private userService:UserService,private snack:MatSnackBar) { }
 
@@ -31,8 +34,41 @@ export class SignupComponent implements OnInit {
       //alert('Username is required!');
       this.snack.open('Username is required!','Okay!',{
         duration:3000,
-        verticalPosition:'top',
-        horizontalPosition:'center'
+      });
+      return;
+    }
+    if(this.user.password=='' || this.user.password==null){
+      //alert('Username is required!');
+      this.snack.open('Password is required!','Okay!',{
+        duration:3000,
+      });
+      return;
+    }
+    if(this.user.firstname=='' || this.user.firstname==null){
+      //alert('Username is required!');
+      this.snack.open('Firstname is required!','Okay!',{
+        duration:3000,
+      });
+      return;
+    }
+    if(this.user.lastname=='' || this.user.lastname==null){
+      //alert('Username is required!');
+      this.snack.open('Lastname is required!','Okay!',{
+        duration:3000,
+      });
+      return;
+    }
+    if(this.user.email=='' || this.user.email==null){
+      //alert('Username is required!');
+      this.snack.open('Email address is required!','Okay!',{
+        duration:3000,
+      });
+      return;
+    }
+    if(this.user.phone=='' || this.user.phone==null){
+      //alert('Username is required!');
+      this.snack.open('Phone number is required!','Okay!',{
+        duration:3000,
       });
       return;
     }
@@ -49,10 +85,8 @@ export class SignupComponent implements OnInit {
         //error
         console.log(error);
         //alert('Something went wrong!');
-        this.snack.open('Something went wrong.','Okay!',{
+        this.snack.open('Something went wrong\nTry again','Okay!',{
           duration:3000,
-          verticalPosition:'top',
-          horizontalPosition:'center'
         });
       }
     )
