@@ -40,4 +40,13 @@ public class QuestionServiceImpl implements QuestionService {
     public Set<Question> getQuestionsOfQuiz(Quiz quiz) {
         return this.questionRepository.findByQuiz(quiz);
     }
+
+    @Override
+    public void deleteQuestion(Long quisId) {
+        Question question = new Question();
+        question.setQuesId(quisId);
+        this.questionRepository.delete(question);
+    }
+
+
 }
