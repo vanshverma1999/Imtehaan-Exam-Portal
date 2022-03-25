@@ -26,7 +26,7 @@
     *ngIf="isLoggedIn && user"
     mat-icon-button class="example-icon mr80 ml20" aria-label="Example icon-button with share icon"
     >
-      {{ user.username }}
+      {{ user.firstname }} {{user.lastname}}
   </a>
     <a
     (click)="logout()"
