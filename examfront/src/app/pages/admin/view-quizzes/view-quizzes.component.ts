@@ -11,6 +11,7 @@ export class ViewQuizzesComponent implements OnInit {
 
   quizzes=[
     {
+      qid:'',
       title:'',
       description:'',
       maxMarks:'',
@@ -37,4 +38,28 @@ export class ViewQuizzesComponent implements OnInit {
     );
   }
 
+  //Delete Quiz
+  deleteQuiz(qid:any){
+    Swal.fire({
+      icon:'warning',
+      title:'Are you sure?',
+      confirmButtonText : 'Delete',
+      showCancelButton : true,
+    }).then((result)=>{
+      if(result.isConfirmed)
+      {
+        //Delete
+        this._quiz.deleteQuiz(qid).subscribe(
+          (data)=>{
+            this.quizzes = this.quizzes.filter((quiz)=>quiz.qid!=qid);
+            Swal.fire("Success!","Quiz has been deleted","success");
+          },
+          (error)=>{
+            console.log(error);
+            Swal.fire("Error!","Something went wrong! Try again later","error");
+          }
+          );
+      }
+    });
+  }
 }
