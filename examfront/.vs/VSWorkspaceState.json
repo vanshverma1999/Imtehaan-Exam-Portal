@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\pages",
+    "\\src\\app\\pages\\admin",
+    "\\src\\app\\pages\\admin\\add-question",
+    "\\src\\app\\pages\\admin\\view-quiz-questions",
+    "\\src\\app\\services"
+  ],
+  "SelectedNode": "\\src\\app\\pages\\admin\\add-question\\add-question.component.ts",
+  "PreviewInSolutionExplorer": false
+}
