@@ -3,12 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\components",
+    "\\src\\app\\components\\navbar",
     "\\src\\app\\pages",
     "\\src\\app\\pages\\admin",
-    "\\src\\app\\pages\\admin\\add-question",
     "\\src\\app\\pages\\admin\\view-quiz-questions",
+    "\\src\\app\\pages\\signup",
     "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\app\\pages\\admin\\add-question\\add-question.component.ts",
+  "SelectedNode": "\\src\\app\\pages\\admin\\view-quiz-questions\\view-quiz-questions.component.ts",
   "PreviewInSolutionExplorer": false
 }
