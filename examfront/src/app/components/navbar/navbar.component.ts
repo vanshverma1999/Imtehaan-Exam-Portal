@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-navbar',
@@ -23,8 +24,19 @@ export class NavbarComponent implements OnInit {
   }
 
   public logout(){
-    this.login.logout();
-    window.location.reload();
+    
     //this.login.loginStatusSubject.next(false);
+    Swal.fire({
+      icon:'warning',
+      title:'Are you sure?',
+      confirmButtonText : 'Logout',
+      showCancelButton : true,
+    }).then((result)=>{
+      if(result.isConfirmed)
+      {
+        this.login.logout();
+      window.location.reload();
+      }
+    });
   }
 }
