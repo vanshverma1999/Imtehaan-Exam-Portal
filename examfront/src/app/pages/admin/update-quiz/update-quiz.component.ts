@@ -31,7 +31,7 @@ export class UpdateQuizComponent implements OnInit {
       },
       (error)=>{
         console.log(error);
-        Swal.fire("Error!","Something went wront! Try again later.","error");
+        Swal.fire("Error!","Something went wrong! Try again later.","error");
       }
       );
 

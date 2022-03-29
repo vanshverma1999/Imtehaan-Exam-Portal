@@ -30,12 +30,12 @@
                 <p>2) {{q.option2}}</p>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-6">
-                <p>3) {{q.option3}}</p>
+            <div class="row" 
+              <div class="col-md-6" >
+                <p *ngIf="q.option3">3) {{q.option3}}</p>
               </div>
-              <div class="col-md-6">
-                <p>4) {{q.option4}}</p>
+              <div class="col-md-6" *ngIf="q.option4">
+                <p *ngIf="q.option4">4) {{q.option4}}</p>
               </div>
             </div>
             <mat-divider></mat-divider>
@@ -47,7 +47,7 @@
 
         <p><b>Correct Answer : </b>{{q.answer}}</p>
         <mat-card-actions>
-          <button mat-raised-button color="primary">Update</button>
+          <button [routerLink]="'/admin/question/' + q.quesId" mat-raised-button color="primary" type="submit">Update</button>
           <button (click)="deleteQuestion(q.quesId)" mat-raised-button color="accent">Delete</button>
         </mat-card-actions>
       </mat-card>

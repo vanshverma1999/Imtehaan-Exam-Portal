@@ -35,6 +35,7 @@ import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.compo
 import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { CKEditorModule } from 'ckeditor4-angular';
+import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { CKEditorModule } from 'ckeditor4-angular';
     AddQuizComponent,
     UpdateQuizComponent,
     ViewQuizQuestionsComponent,
-    AddQuestionComponent
+    AddQuestionComponent,
+    UpdateQuestionComponent
   ],
   imports: [
     BrowserModule,
