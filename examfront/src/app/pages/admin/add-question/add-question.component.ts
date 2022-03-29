@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { QuestionService } from '../../../services/question.service';
 import { QuizService } from '../../../services/quiz.service';
-
 @Component({
   selector: 'app-add-question',
   templateUrl: './add-question.component.html',
   styleUrls: ['./add-question.component.css']
 })
 export class AddQuestionComponent implements OnInit {
+
 
   qId: any;
   qTitle: any;
@@ -57,6 +57,7 @@ export class AddQuestionComponent implements OnInit {
         this.question.option3 = ''
         this.question.option4 = ''
         this.question.answer = ''
+        
       },
 
       (error) => {

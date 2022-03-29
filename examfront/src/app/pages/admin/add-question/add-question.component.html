@@ -14,6 +14,7 @@
 
         <form class="mt20" (submit) ="formSubmit()">
           <!--content Files-->
+          <!--
           <mat-form-field class="w75" appearance="outline">
             <mat-label>Write your question here.......</mat-label>
             <textarea
@@ -24,11 +25,17 @@
                       matInput
                       placeholder="Enter here..."></textarea>
           </mat-form-field>
+        -->
+        <ckeditor
+          name="content"
+          [(ngModel)]="question.content"
+          ></ckeditor>
+
           <!--Options-->
           <div class="row">
             <div class="col-md-6">
               <!--Option 1-->
-              <mat-form-field class="w75 ml148" appearance="outline">
+              <mat-form-field class="w75 ml148 mt10" appearance="outline">
                 <mat-label>Enter Option1</mat-label>
                 <input
                        required
@@ -40,7 +47,7 @@
             </div>
             <div class="col-md-6">
               <!--Option 2-->
-              <mat-form-field class="w75 mr148" appearance="outline">
+              <mat-form-field class="w75 mr148 mt10" appearance="outline">
                 <mat-label>Enter Option2</mat-label>
                 <input
                        required
@@ -57,7 +64,7 @@
               <mat-form-field class="w75 ml148" appearance="outline">
                 <mat-label>Enter Option3</mat-label>
                 <input
-                      required
+                      
                        [(ngModel)] ="question.option3"
                        name="option3"
                        type="text" matInput />
@@ -68,7 +75,7 @@
               <mat-form-field class="w75 mr148" appearance="outline">
                 <mat-label>Enter Option4</mat-label>
                 <input
-                      required
+                      
                        [(ngModel)] ="question.option4"
                        name="option4"
                        type="text" matInput />

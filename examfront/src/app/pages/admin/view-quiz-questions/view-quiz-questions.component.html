@@ -15,11 +15,11 @@
         </button>
       </div>
 
-      <mat-card *ngFor="let q of questions; let i = index" class="mt30">
+      <mat-card *ngFor="let q of questions; let i = index" class="mt10">
         <mat-card-content>
 
           <p> 
-            <b>Que{{i+1}})</b><span class="ml10" [innerHTML]="q.content"></span>
+            <b>Q{{i+1}})</b><span class="ml10" [innerHTML]="q.content"></span>
           </p>
           <div class="container-fluid">
             <div class="row">
@@ -44,8 +44,12 @@
           </div>
 
         </mat-card-content>
+
         <p><b>Correct Answer : </b>{{q.answer}}</p>
-        <mat-divider></mat-divider>
+        <mat-card-actions>
+          <button mat-raised-button color="primary">Update</button>
+          <button (click)="deleteQuestion(q.quesId)" mat-raised-button color="accent">Delete</button>
+        </mat-card-actions>
       </mat-card>
     </div>
   </div>

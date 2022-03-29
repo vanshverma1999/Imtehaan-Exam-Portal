@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { QuestionService } from '../../../services/question.service';
 
 
@@ -15,7 +16,7 @@ export class ViewQuizQuestionsComponent implements OnInit {
   questions : any = [];
 
   constructor(private _route: ActivatedRoute,
-    private _question: QuestionService
+    private _question: QuestionService,
   ) {}
 
   ngOnInit(): void {
@@ -29,5 +30,27 @@ export class ViewQuizQuestionsComponent implements OnInit {
         console.log(error)
       })
   }
-
+  deleteQuestion(qId:any){
+    Swal.fire({
+      icon:'warning',
+      title:'Are you sure?',
+      confirmButtonText : 'Delete',
+      showCancelButton : true,
+    }).then((result)=>{
+      if(result.isConfirmed)
+      {
+        this._question.deleteQuestion(qId).subscribe(
+          (data)=>{
+            this.questions = this.questions.filter((questions:any)=>questions.quesId!=qId);
+            Swal.fire("Success!","Question has been deleted","success").then((e)=>{
+            });
+          },
+          (error)=>{
+            Swal.fire("Error!","Something went wrong! Try again later.","error");
+            console.log(error);
+          }
+        );
+      }
+    });
+  }
 }
