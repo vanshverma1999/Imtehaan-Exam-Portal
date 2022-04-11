@@ -33,7 +33,14 @@ export class LoadQuizComponent implements OnInit {
         );
       }else{
         console.log("load specific quiz");
-        this.quizzes=[]
+        this._quiz.getQuizzesOfCategory(this.catId).subscribe(
+          (data:any)=>{
+            this.quizzes=data;
+          },
+          (error)=>{
+            alert('error in loading quiz data')
+          }
+        )
       }
     });
   }
