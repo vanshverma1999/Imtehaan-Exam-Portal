@@ -1,0 +1,32 @@
+.truncate{
+    display: block;
+    white-space: nowrap;
+    width: 280px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.example-heade-image{
+    background-image: url("/assets/exam1.png");
+    background-size: cover;
+}
+.mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button {
+    box-sizing: border-box;
+    position: relative;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 0px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 4px;
+    overflow: visible;
+}
