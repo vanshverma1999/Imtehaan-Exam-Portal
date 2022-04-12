@@ -17,12 +17,26 @@
                         </h1>
                         <ul>
                             <li>This quiz is only for practice purpose.</li>
-                            <li>You have to submit quiz within {{quiz.numberOfQuestions*1}} minutes.</li>
-
+                            <li>All the questions are compulsory.</li>
+                            <li>There are total <b>{{quiz.numberOfQuestions}} questions</b> in this quiz.</li>
+                            <li>Each question carries <b>{{quiz.maxMarks/quiz.numberOfQuestions}} marks</b>.</li>
+                            <li>There is no negative marking.</li>
+                            <li>You have to submit your quiz within <b>{{quiz.numberOfQuestions*1}} minutes</b>.</li>
+                            <li>You can attempt the quiz any number of time.</li>
+                        </ul>
+                        <mat-divider></mat-divider>
+                        <br>
+                        <h1>Attempting Quiz</h1>
+                        <ul>
+                            <li>Click <b>Start Quiz</b> button to start the quiz.</li>
+                            <li>The time will start the moment you click the Start test button.</li>
+                            <li>Scroll down to move to the  next question.</li>
+                            <li>Click on <b>Submit Quiz</b> button on completion of quiz.</li>
+                            <li>Report of the test will be automatically genearate in form of PDF copy.</li>
                         </ul>
                     </mat-card-content>
-                    <mat-card-actions>
-
+                    <mat-card-actions class="text-center">
+                        <button mat-raised-button color="primary">Start Quiz</button>
                     </mat-card-actions>
                 </mat-card>
             </div>
