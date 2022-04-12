@@ -1,6 +1,7 @@
 package com.exam.model.Exams;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 
@@ -19,8 +20,6 @@ public class Question {
     private String option2;
     private String option3;
     private String option4;
-
-    @JsonIgnore
     private String answer;
     @Transient
     private String givenAnswer;
