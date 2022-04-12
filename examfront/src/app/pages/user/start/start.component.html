@@ -3,7 +3,17 @@
         <div class="row">
             <div class="col-md-2">
             <!-- instructions -->
-            Instructions
+            <mat-card style="margin-top: 70px">
+                <mat-card-content>
+                    <h3>Instructions</h3>
+            <ul>
+                <li>Do not refresh the page. You will lose your attempted answer.</li>
+                <li>You are being proctored. Do not look away from the screen</li>
+                <li>Do not switch the tabs.</li>
+            </ul>
+                </mat-card-content>
+            </mat-card>
+
         </div>
         <div class="col-md-8">
             <!-- questions -->
@@ -74,7 +84,7 @@
                     <h1>Questions Attempted : {{attempted}}</h1>
                 </mat-card-content>
                 <mat-card-actions class="text-center mb20">
-                    <button mat-raised-button color="accent">Print</button>
+                    <button (click)="printPage()" mat-raised button color="accent">Print</button>
                     <button mat-raised-button color="primary" [routerLink]="'/user-dashboard/0'">Home</button>
                 </mat-card-actions>
             </mat-card>

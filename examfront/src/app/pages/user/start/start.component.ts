@@ -91,7 +91,7 @@ export class StartComponent implements OnInit {
     this._question.evalQuiz(this.questions).subscribe(
       (data:any)=>{
         console.log(data);
-        this.marksGot=data.marksGot;
+        this.marksGot=parseFloat(Number(data.marksGot).toFixed(2));
         this.correctAnswers= data.correctAnswers;
         this.attempted= data.attempted;
         this.isSubmit=true;
@@ -101,22 +101,8 @@ export class StartComponent implements OnInit {
         
       }
     );
-    // this.isSubmit=true;
-    //     //calculations
-    //     this.questions.forEach((q:any)=>{
-    //       if(q.givenAnswer==q.answer){
-    //         this.correctAnswers++;
-    //         let marksSingle=this.questions[0].quiz.maxMarks/this.questions.length;
-    //         this.marksGot += marksSingle;
-    //       }
-    //       if(q.givenAnswer.trim()!=''){
-    //         this.attempted++;
-    //       }
-    //       Swal.fire('Quiz submitted!', '', 'success')
-    //       if(document.exitFullscreen){
-    //         document.exitFullscreen();
-    //       }
-          
-    //     })
+  }
+  printPage(){
+    window.print();
   }
 }
