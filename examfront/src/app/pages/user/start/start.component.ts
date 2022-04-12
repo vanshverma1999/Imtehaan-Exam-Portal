@@ -17,6 +17,7 @@ export class StartComponent implements OnInit {
   attempted=0;
   correctAnswers=0;
   isSubmit= false;
+  timer:any;
 
   constructor(
     private locationSt: LocationStrategy, 
@@ -35,11 +36,14 @@ export class StartComponent implements OnInit {
     this._question.getQuestionsOfQuizForTest(this.qid).subscribe(
       (data:any)=>{
         this.questions= data;
+
+        this.timer= this.questions.length*1*60;
+
         this.questions.forEach((q:any)=>{
           q['givenAnswer']='';
         });
         console.log(this.questions);
-        
+        this.startTimer();
       },
       (error)=>{
         console.log(error);
@@ -63,7 +67,28 @@ export class StartComponent implements OnInit {
       icon:'info'
     }).then((e)=>{
       if(e.isConfirmed){
-        this.isSubmit=true;
+        this.evalQuiz();
+      }
+    });   
+  }
+  startTimer(){
+    let t = window.setInterval(()=>{
+      // it will be called after every 1 sec
+      if(this.timer<=0){
+        this.evalQuiz();
+        clearInterval(t);
+      }else{
+        this.timer--;
+      }
+    },1000);
+  }
+  getFormattedTime(){
+    let mm= Math.floor(this.timer/60);
+    let ss = this.timer- mm*60;
+    return `${mm} min : ${ss} sec`;
+  }
+  evalQuiz(){
+    this.isSubmit=true;
         //calculations
         this.questions.forEach((q:any)=>{
           if(q.givenAnswer==q.answer){
@@ -80,7 +105,5 @@ export class StartComponent implements OnInit {
           }
           
         })
-      }
-    });   
   }
 }

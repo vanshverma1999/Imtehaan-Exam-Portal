@@ -25,10 +25,10 @@
                         </div>
                     </div>
                     <div class="row mt20">
-                        <div class="col-md-6">
+                        <div class="col-md-6" *ngIf="q.option3">
                             <input [(ngModel)]="q.givenAnswer" type="radio" [value]="q.option3" name={{i}} />{{q.option3}}
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" *ngIf="q.option4">
                             <input [(ngModel)]="q.givenAnswer" type="radio" [value]="q.option4" name={{i}} />{{q.option4}}
                         </div>
                     </div>
@@ -40,6 +40,20 @@
         </div>
         <div class="col-md-2">
             <!-- progress -->
+            <mat-card style="margin-top: 70px;">
+                <mat-card-header>
+                    <mat-card-title>Time Left:</mat-card-title>
+                    <mat-card-subtitle>Quiz will automatically submitted when timer reaches to <b>00:00</b></mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <h3 class="text-center">Time left : {{getFormattedTime()}}</h3>
+                    <mat-spinner 
+                        style="margin:auto"
+                        mode="determinate"
+                        [value]="(timer/(this.questions.length*1*60))*100">
+                    </mat-spinner>
+                </mat-card-content>
+            </mat-card>
         </div>
         </div>
     </div>
