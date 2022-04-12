@@ -71,4 +71,27 @@ public class QuestionController {
     public void delete(@PathVariable("quesId") Long quesId){
         this.service.deleteQuestion(quesId);
     }
+
+    //Evaluate quiz
+    @PostMapping("/eval-quiz")
+    public ResponseEntity<?> evalQuiz(@RequestBody List<Question> questions){
+        double marksGot=0l;
+        int attempted=0;
+        int correctAnswers=0;
+        for (Question q : questions) {
+            //single question
+            Question question = this.service.get(q.getQuesId());
+            if(question.getAnswer().equals(q.getGivenAnswer())){
+                //correct
+                correctAnswers++;
+                double marksSingle=  Double.parseDouble(questions.get(0).getQuiz().getMaxMarks())/questions.size();
+                marksGot+= marksSingle;
+            }
+            if( q.getGivenAnswer()!=null){
+                attempted++;
+            }
+        }
+        Map<String,Object> map = Map.of("marksGot", marksGot, "correctAnswers", correctAnswers, "attempted", attempted);
+        return ResponseEntity.ok(map);
+    }
 }

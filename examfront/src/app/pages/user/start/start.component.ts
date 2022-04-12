@@ -39,9 +39,7 @@ export class StartComponent implements OnInit {
 
         this.timer= this.questions.length*1*60;
 
-        this.questions.forEach((q:any)=>{
-          q['givenAnswer']='';
-        });
+        
         console.log(this.questions);
         this.startTimer();
       },
@@ -88,22 +86,37 @@ export class StartComponent implements OnInit {
     return `${mm} min : ${ss} sec`;
   }
   evalQuiz(){
-    this.isSubmit=true;
-        //calculations
-        this.questions.forEach((q:any)=>{
-          if(q.givenAnswer==q.answer){
-            this.correctAnswers++;
-            let marksSingle=this.questions[0].quiz.maxMarks/this.questions.length;
-            this.marksGot += marksSingle;
-          }
-          if(q.givenAnswer.trim()!=''){
-            this.attempted++;
-          }
-          Swal.fire('Quiz submitted!', '', 'success')
-          if(document.exitFullscreen){
-            document.exitFullscreen();
-          }
+
+    //call server to evaluate quiz
+    this._question.evalQuiz(this.questions).subscribe(
+      (data:any)=>{
+        console.log(data);
+        this.marksGot=data.marksGot;
+        this.correctAnswers= data.correctAnswers;
+        this.attempted= data.attempted;
+        this.isSubmit=true;
+      },
+      (error)=>{
+        console.log(error);
+        
+      }
+    );
+    // this.isSubmit=true;
+    //     //calculations
+    //     this.questions.forEach((q:any)=>{
+    //       if(q.givenAnswer==q.answer){
+    //         this.correctAnswers++;
+    //         let marksSingle=this.questions[0].quiz.maxMarks/this.questions.length;
+    //         this.marksGot += marksSingle;
+    //       }
+    //       if(q.givenAnswer.trim()!=''){
+    //         this.attempted++;
+    //       }
+    //       Swal.fire('Quiz submitted!', '', 'success')
+    //       if(document.exitFullscreen){
+    //         document.exitFullscreen();
+    //       }
           
-        })
+    //     })
   }
 }
