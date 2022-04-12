@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuizService } from 'src/app/services/quiz.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-instructions',
@@ -15,6 +16,7 @@ export class InstructionsComponent implements OnInit {
   constructor(
     private _route: ActivatedRoute,
     private _quiz: QuizService,
+    private _router: Router,
 
   ) { }
 
@@ -29,6 +31,30 @@ export class InstructionsComponent implements OnInit {
       }
     )
     console.log(this.qid);
+  }
+  elem = document.documentElement;
+  startQuiz(){
+    Swal.fire({
+      title: 'Do you want to start the quiz?',
+      showCancelButton: true,
+      confirmButtonText: 'Start',
+      icon:'info'
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        
+        //full Screen code
+        if(this.elem.requestFullscreen){
+          this.elem.requestFullscreen();
+        }
+        this._router.navigate(['/start/'+this.qid]);
+        Swal.fire('All the Best!', '', 'success')
+      } 
+      else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
+    
   }
 
 }

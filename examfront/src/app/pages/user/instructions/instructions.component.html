@@ -8,7 +8,7 @@
                         <mat-card-subtitle>One more step to go....</mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-content class="ml20">
-                        <h3>{{quiz.title}}</h3>
+                        <h1><b>{{quiz.title}}</b></h1>
                         <p>{{quiz.description}}</p>
                         <mat-divider></mat-divider>
                         <br>
@@ -22,6 +22,9 @@
                             <li>Each question carries <b>{{quiz.maxMarks/quiz.numberOfQuestions}} marks</b>.</li>
                             <li>There is no negative marking.</li>
                             <li>You have to submit your quiz within <b>{{quiz.numberOfQuestions*1}} minutes</b>.</li>
+                            <li>You must use a functioning webcam and microphone.</li>
+                            <li>No cell phones or other secondary devices in the room or test area.</li>
+                            <li>The testing room must be well-lit and you must be clearly visible.</li>
                             <li>You can attempt the quiz any number of time.</li>
                         </ul>
                         <mat-divider></mat-divider>
@@ -36,7 +39,10 @@
                         </ul>
                     </mat-card-content>
                     <mat-card-actions class="text-center">
-                        <button mat-raised-button color="primary">Start Quiz</button>
+                        <button (click)="startQuiz()"
+                        class=""
+                        mat-raised-button color="primary">Start Quiz
+                    </button>
                     </mat-card-actions>
                 </mat-card>
             </div>
