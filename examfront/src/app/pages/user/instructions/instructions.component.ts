@@ -51,7 +51,7 @@ export class InstructionsComponent implements OnInit {
         Swal.fire('All the Best!', '', 'success')
       } 
       else if (result.isDenied) {
-        Swal.fire('Changes are not saved', '', 'info')
+        Swal.fire('Erro in Loading Quiz', '', 'info')
       }
     })
     

@@ -66,8 +66,12 @@ export class StartComponent implements OnInit {
     }).then((e)=>{
       if(e.isConfirmed){
         this.evalQuiz();
+        if(document.exitFullscreen){
+          document.exitFullscreen();
+        }
       }
     });   
+    
   }
   startTimer(){
     let t = window.setInterval(()=>{
