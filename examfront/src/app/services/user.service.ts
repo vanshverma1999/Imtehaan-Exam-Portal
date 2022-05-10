@@ -14,6 +14,14 @@ export class UserService {
   {
     return this.http.post(`${baseUrl}/user/`,user);
   }
-  
+  //updateUser
+  public updateUser(user:any){
+    return this.http.put(`${baseUrl}/user/`,user);
+  }
 
-}
+  //Get user
+  public getUser(id:any){
+    return this.http.get(`${baseUrl}/user/id/${id}`);
+  }
+
+} 

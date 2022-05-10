@@ -1,0 +1,70 @@
+<mat-card>
+    <h1 class = "text-center">Update User details</h1>
+        <div class="bootstrap-wrapper">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <form (ngSubmit)="updateData()" class="text-center">
+                        <mat-form-field class="w75 text-center" appearance="outline">
+                            <mat-label>
+                                Enrollment number
+                            </mat-label>
+                            <input
+                            required
+                            [(ngModel)]="user.username"
+                            type="text" name="title" placeholder="Enter here" matInput/>
+                        </mat-form-field>
+                        <mat-form-field class="w75 text-center" appearance="outline">
+                            <mat-label>
+                                Id
+                            </mat-label>
+                            <input
+                            required
+                            disabled="true"
+                            [(ngModel)]="user.id"
+                            type="text" name="id" placeholder="Enter here" matInput/>
+                        </mat-form-field>
+                        <mat-form-field class="w75 text-center" appearance="outline">
+                            <mat-label>
+                                Firstname
+                            </mat-label>
+                            <input
+                            required
+                            [(ngModel)]="user.firstname"
+                            type="text" name="firstname" placeholder="Enter here" matInput/>
+                        </mat-form-field>
+                        <mat-form-field class="w75 text-center" appearance="outline">
+                            <mat-label>
+                                Lastname
+                            </mat-label>
+                            <input
+                            required
+                            [(ngModel)]="user.lastname"
+                            type="text" name="lastname" placeholder="Enter here" matInput/>
+                        </mat-form-field>
+                        <mat-form-field class="w75 text-center" appearance="outline">
+                            <mat-label>
+                                Phone Number
+                            </mat-label>
+                            <input
+                            required
+                            [(ngModel)]="user.phone"
+                            type="text" name="phone" placeholder="Enter here" matInput/>
+                        </mat-form-field>
+                        <mat-form-field class="w75 text-center" appearance="outline">
+                            <mat-label>
+                                Email
+                            </mat-label>
+                            <input
+                            required
+                            [(ngModel)]="user.email"
+                            type="text" name="email" placeholder="Enter here" matInput/>
+                        </mat-form-field>
+                        <div class="container text-center">
+                            <button [routerLink]="'/admin/profile/' + uid" mat-raised-button color="accent" type="submit">Update</button>
+                            <button mat-raised-button color="primary" type="reset" class="ml20">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</mat-card>

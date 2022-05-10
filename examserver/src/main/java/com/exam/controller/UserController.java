@@ -56,15 +56,27 @@ public class UserController {
         return this.userService.getUser(username);
     }
 
+    @GetMapping("/id/{userId}")
+    public User getUserById(@PathVariable("userId") Long userId){
+        return this.userService.getUserById(userId);
+    }
+
     //delete user by ID
     @DeleteMapping("/{userId}")
     public void deleteUser(@PathVariable("userId") Long userId){
         this.userService.deleteUser(userId);
     }
 
+    //Update user by username
+    @PutMapping("/")
+    public User updateUser(@RequestBody User user){
+       return this.userService.updateUser(user);
+    }
+
     /*
     @ExceptionHandler(UserFoundException.class)
     public ResponseEntity<?> exceptionHandler(UserFoundException e){return ResponseEntity.ok("UserFound");}
     */
+
 
 }
