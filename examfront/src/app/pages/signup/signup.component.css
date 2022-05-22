@@ -5,3 +5,20 @@
     height: 100px;
     width: 100px;
 }
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 700px;
+    width: 500px;
+  }
+.control{
+   height: 750px;
+    width: 1495px;
+}
