@@ -13,13 +13,15 @@
                         <!--Username Field-->
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Enrollment Number</mat-label>
-                            <input
+                            <input 
                             required
                             [(ngModel)]="user.username"
                             name="username" 
                             matInput 
                             placeholder="Enter here"
-                            />
+                            ngModel minlength="11"
+                            ngModel maxlength="11"
+                            onlyNumbers/>
                             <mat-hint> Enter your University rollment number.</mat-hint>
                         </mat-form-field>
                         <!--Password Field-->
@@ -52,11 +54,10 @@
                         <!--Email Field-->
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Email Address</mat-label>
-                            <input 
-                            required
-                            [(ngModel)]="user.email"
-                            name="email"
-                            type="email" matInput placeholder="Enter here">
+                            <input matInput #email="ngModel" type="email" [(ngModel)]="user.email" name="data_email" placeholder="Email" [class.is-invalid]="email.invalid && email.touched" required
+                pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+         <mat-error *ngIf="email.errors && (email.invalid || email.touched) && email.errors['pattern']">Please enter a valid email address.</mat-error>
+         <mat-error *ngIf="email.errors && (email.invalid || email.touched) && email.errors['required']">Email is required.</mat-error>
                         </mat-form-field>
                         <!--PhoneNumber Field-->
                         <mat-form-field class="full-width" appearance="outline">
@@ -65,7 +66,11 @@
                             required
                             [(ngModel)]="user.phone"
                             name="phone"
-                            type="number" matInput placeholder="Enter here">
+                            type="number" matInput 
+                            placeholder="Enter here"
+                            ngModel minlength="10"
+                            ngModel maxlength="10"
+                            onlyNumbers>
                         </mat-form-field>
                         <div class="container text-center">
                             <button type="submit" mat-raised-button color="primary">Signup</button>

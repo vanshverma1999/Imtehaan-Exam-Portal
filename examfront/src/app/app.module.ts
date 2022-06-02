@@ -43,6 +43,7 @@ import { StartComponent } from './pages/user/start/start.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
+import { OnlyNumbersDirective } from './directive/only-numbers.directive';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { UpdateProfileComponent } from './pages/update-profile/update-profile.co
     InstructionsComponent,
     StartComponent,
     UpdateProfileComponent,
+    OnlyNumbersDirective,
   ],
   imports: [
     BrowserModule,

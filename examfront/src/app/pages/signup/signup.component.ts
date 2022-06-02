@@ -30,9 +30,9 @@ export class SignupComponent implements OnInit {
   formSubmit()
   {
     console.log(this.user);
-    if(this.user.username=='' || this.user.username==null){
+    if(this.user.username=='' || this.user.username==null || !this.isValidEnrolNum(this.user.username)){
       //alert('Username is required!');
-      this.snack.open('Username is required!','Okay!',{
+      this.snack.open('Please Enter a valid Username!','Okay!',{
         duration:3000,
       });
       return;
@@ -58,20 +58,22 @@ export class SignupComponent implements OnInit {
       });
       return;
     }
-    if(this.user.email=='' || this.user.email==null){
+    if(this.user.email=='' || this.user.email==null || !this.isValidEmail(this.user.email)){
       //alert('Username is required!');
-      this.snack.open('Email address is required!','Okay!',{
+      this.snack.open('Please Enter a valid Email','Okay!',{
         duration:3000,
       });
       return;
     }
-    if(this.user.phone=='' || this.user.phone==null){
+    if(this.user.phone=='' || this.user.phone==null || !this.isValidPhone(this.user.phone)){
       //alert('Username is required!');
-      this.snack.open('Phone number is required!','Okay!',{
+      this.snack.open('Please Enter a valid Phone Number','Okay!',{
         duration:3000,
       });
       return;
     }
+
+
 
     //addUser : userService
     this.userService.addUser(this.user).subscribe(
@@ -92,6 +94,19 @@ export class SignupComponent implements OnInit {
     )
     
   }
+  isValidEmail(email:String){
+    const regularExpression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regularExpression.test(String(email).toLowerCase()); 
+  }
 
+  isValidEnrolNum(username: String){
+    const regularExpression = /^[0-9]{11}$/;
+    return regularExpression.test(String(username).toLowerCase()); 
+  }
+
+  isValidPhone(number : String){
+    const regularExpression = /^[0-9]{10}$/;
+    return regularExpression.test(String(number).toLowerCase()); 
+  }
   //this.user
 }
