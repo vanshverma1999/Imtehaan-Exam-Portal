@@ -44,16 +44,16 @@ export class SignupComponent implements OnInit {
       });
       return;
     }
-    if(this.user.firstname=='' || this.user.firstname==null){
+    if(this.user.firstname=='' || this.user.firstname==null || !this.isValidName(this.user.firstname)){
       //alert('Username is required!');
-      this.snack.open('Firstname is required!','Okay!',{
+      this.snack.open('Please Enter a valid First Name','Okay!',{
         duration:3000,
       });
       return;
     }
-    if(this.user.lastname=='' || this.user.lastname==null){
+    if(this.user.lastname=='' || this.user.lastname==null || !this.isValidName(this.user.lastname)){
       //alert('Username is required!');
-      this.snack.open('Lastname is required!','Okay!',{
+      this.snack.open('Please Enter a valid Last Name','Okay!',{
         duration:3000,
       });
       return;
@@ -107,6 +107,11 @@ export class SignupComponent implements OnInit {
   isValidPhone(number : String){
     const regularExpression = /^[0-9]{10}$/;
     return regularExpression.test(String(number).toLowerCase()); 
+  }
+
+  isValidName(name : String){
+    const regularExpression = /^[a-zA-Z ]+$/;
+    return regularExpression.test(String(name).toLowerCase()); 
   }
   //this.user
 }
