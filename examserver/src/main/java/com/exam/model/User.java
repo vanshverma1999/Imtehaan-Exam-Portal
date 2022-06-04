@@ -1,15 +1,13 @@
 package com.exam.model;
 
+
 import com.exam.model.Exams.Result;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "users")
@@ -34,12 +32,26 @@ public class User implements UserDetails {
     private Set<UserRole> userRoles = new HashSet<>();
 
 
+
     public Set<UserRole> getUserRoles() {
         return userRoles;
     }
 
     public void setUserRoles(Set<UserRole> userRoles) {
         this.userRoles = userRoles;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
+    @JsonIgnore
+    private List<Result> results=new ArrayList<>();
+
+
+    public List<Result> getResults() {
+        return results;
+    }
+
+    public void setResults(List<Result> results) {
+        this.results = results;
     }
 
     public User(){
