@@ -11,10 +11,9 @@
                         <mat-card-subtitle>{{q.category.title}}</mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-content>
-                        <p class="truncate">{{q.description}}</p>
+                        <p>{{q.description}}</p>
                     </mat-card-content>
                     <mat-card-actions>
-                        <button mat-raised-button color="primary">View</button>
                         <button mat-raised-button color="accent" [routerLink]="'/user-dashboard/instructions/'+q.qid">Start</button>
                         <button mat-button color="accent">Questions:{{q.numberOfQuestions}}</button>
                         <button mat-button color="accent">M.M.:{{q.maxMarks}}</button>
