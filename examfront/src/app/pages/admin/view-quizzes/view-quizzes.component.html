@@ -18,7 +18,7 @@
       </button>
       <button mat-button color="primary">Max Marks : {{q.maxMarks}}</button>
       <button mat-button color="primary">Number of questions : {{q.numberOfQuestions}}</button>
-      <button mat-raised-button color="primary">Attemps</button>
+      <button [routerLink]="'/admin/quiz/'+q.qid+'/attempts'" mat-raised-button color="primary">Results</button>
       <button [routerLink]="'/admin/quiz/' + q.qid" mat-raised-button color="primary">Update</button>
       <button mat-raised-button color="accent" (click)="deleteQuiz(q.qid)">Delete</button>
     </mat-card-actions>

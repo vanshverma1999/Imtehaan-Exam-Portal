@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import { AttemptsComponent } from './pages/admin/attempts/attempts.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
@@ -76,6 +77,10 @@ const routes: Routes = [
         component:UpdateQuizComponent,
       },
       {
+        path:'quiz/:qid/attempts',
+        component:AttemptsComponent,
+      },
+      {
         path: 'view-questions/:qid/:title',
         component: ViewQuizQuestionsComponent,
       },
@@ -94,6 +99,7 @@ const routes: Routes = [
     component:UserDashboardComponent,
     canActivate:[NormalGuard],
     children:[
+    
       {
         path:'profile',
         component: ProfileComponent,

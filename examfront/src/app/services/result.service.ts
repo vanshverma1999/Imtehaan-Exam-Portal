@@ -24,4 +24,5 @@ export class ResultService {
   public getResultByQuiz(qid:any){
     return this._http.get(`${baseUrl}/result/${qid}`);
   }
+
 }

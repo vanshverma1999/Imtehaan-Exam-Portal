@@ -1,0 +1,23 @@
+<mat-card class="text-center">
+    <table [cellSpacing]="30" align="center">
+        <tr>
+        <td class="text-center">User ID</td>
+        <td class="text-center">Enrollment Number</td>
+        <td class="text-center">First name</td>
+        <td class="text-center">Last name</td>
+        <td class="text-center">Question Attempted</td>
+        <td class="text-center">Correct Answers</td>
+        <td class="text-center">Marks Scored</td>
+        <td></td>
+        </tr>
+        <tr *ngFor="let r of result">
+        <td class="text-center">E{{r.user.id}}</td>
+        <td class="text-center">{{r.user.username}}</td>
+        <td class="text-center">{{r.user.firstname}}</td>
+        <td class="text-center">{{r.user.lastname}}</td>
+        <td class="text-center">{{r.qAttempted}}</td>
+        <td class="text-center">{{r.correctAns}}</td>
+        <td class="text-center">{{r.marksScored}}</td>
+        </tr>
+    </table>
+</mat-card>

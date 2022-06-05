@@ -44,6 +44,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 import { OnlyNumbersDirective } from './directive/only-numbers.directive';
+import { AttemptsComponent } from './pages/admin/attempts/attempts.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,8 @@ import { OnlyNumbersDirective } from './directive/only-numbers.directive';
     StartComponent,
     UpdateProfileComponent,
     OnlyNumbersDirective,
+    AttemptsComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -83,6 +86,7 @@ import { OnlyNumbersDirective } from './directive/only-numbers.directive';
     FormsModule,
     HttpClientModule,
     MatSnackBarModule,
+    MatIconModule,
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
