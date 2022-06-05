@@ -2,6 +2,8 @@ import { LocationStrategy } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { QuestionService } from 'src/app/services/question.service';
+import { ResultService } from 'src/app/services/result.service';
+import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,6 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class StartComponent implements OnInit {
   qid:any;
+  uid:any;
   questions:any;
 
   marksGot=0;
@@ -19,17 +22,30 @@ export class StartComponent implements OnInit {
   isSubmit= false;
   timer:any;
 
+  result:any={
+    qAttempted:'',
+    correctAns:'',
+    marksScored:'',
+    user:[{
+      uid:'',
+    }],
+    quiz:[{qid:''}]
+  };
+  
   constructor(
     private locationSt: LocationStrategy, 
     private _route:ActivatedRoute,
-    private _question: QuestionService
+    private _question: QuestionService,
+    private _result:ResultService,
+    private _user:UserService,
     )
     { }
 
   ngOnInit(): void {
     this.preventBackButton();
     this.qid=this._route.snapshot.params['qid'];
-    console.log(this.qid)
+    this.uid=this._route.snapshot.params['uid'];
+    console.log(this.qid,this.uid);
     this.loadQuestions();
   }
   loadQuestions(){
@@ -66,6 +82,7 @@ export class StartComponent implements OnInit {
     }).then((e)=>{
       if(e.isConfirmed){
         this.evalQuiz();
+        this.loadResult();
         if(document.exitFullscreen){
           document.exitFullscreen();
         }
@@ -105,6 +122,20 @@ export class StartComponent implements OnInit {
         
       }
     );
+  }
+  loadResult(){
+    this._result.addResult(this.result).subscribe(
+      (data:any)=>
+      this.result={
+        qAttempted:'',
+        correctAns:'',
+        marksScored:'',
+        user:[{
+          uid:'',
+        }],
+        quiz:[{qid:''}]
+      }
+    )
   }
   printPage(){
     window.print();
